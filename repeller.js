@@ -4,17 +4,15 @@ class Repeller {
     this.power = 300;
     this.angle = 0;
   }
-  
-   move(){
+
+  move() {
     this.angle+= 0.05;
     this.position.x = width/2 + 150 * cos(this.angle);
-    this.position.y = height/2 + 150* sin(this.angle);
-   }
-
+    this.position.y = height/2 + 150 * sin(this.angle);
+  }
+  
   show() {
-    stroke(0);
-    strokeWeight(2);
-    fill(127);
+    fill(0);
     circle(this.position.x, this.position.y, 32);
   }
 

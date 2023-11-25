@@ -23,11 +23,11 @@ class Particle {
   }
 
   show() {
-    stroke(0, this.lifespan);
-    strokeWeight(2);
-    fill(127, this.lifespan);
-    circle(this.position.x, this.position.y, 8);
+    noStroke();
+    fill(50, this.lifespan);
+    circle(this.position.x, this.position.y, 6);
   }
+
 
   isDead() {
     return this.lifespan < 0.0;

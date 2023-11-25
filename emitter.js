@@ -1,4 +1,3 @@
-
 class Emitter {
 
   constructor(x, y) {
@@ -19,13 +18,6 @@ class Emitter {
   applyRepeller(repeller) {
     for (let particle of this.particles) {
       let force = repeller.repel(particle);
-      particle.applyForce(force);
-    }
-  }
-
-  applyAttractor(attractor) {
-    for (let particle of this.particles) {
-      let force = attractor.pull(particle);
       particle.applyForce(force);
     }
   }
