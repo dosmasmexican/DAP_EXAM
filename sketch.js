@@ -5,12 +5,12 @@ let repeller;
 let att;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(800, 600);
   emitter1 = new Emitter(width / 2, 100);
   emitter2 = new Emitter(width / 2, height-100);
   repeller = new Repeller(width / 2, height/2);
-  att1 = new Attractor(135, height/2);
-  att2 = new Attractor(465, height/2);
+  att1 = new Attractor(235, height/2);
+  att2 = new Attractor(565, height/2);
 }
 
 function draw() {
