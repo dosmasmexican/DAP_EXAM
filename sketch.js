@@ -10,7 +10,6 @@ function setup() {
 
 function draw() {
   background(255);
-  repeller.setSpeed(mouseX);
   repeller.move();
   emitter.addParticle();
   let gravity = createVector(0, 0.1);
