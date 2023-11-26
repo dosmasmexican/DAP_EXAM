@@ -9,7 +9,9 @@ function setup() {
 
 function draw() {
   background(255);
-  rule(particles, particles, 10);
+  let power = map(mouseX, 0, width, -50, 50)
+  rule(particles, particles, power);
+
   for (let i=0; i<particles.length; i++) {
     let p = particles[i];
     p.update();
