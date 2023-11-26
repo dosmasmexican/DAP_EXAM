@@ -1,46 +1,40 @@
-let particles = [];
-let repellers = [];
+let movers = [];
+
+let attractor;
 
 function setup() {
-  createCanvas(400, 400);
-  noStroke();
-  particles = createParticles(color(0, 0, 0), 300);
-  repellers = createParticles(color(255, 255, 255), 20);
+  createCanvas(600, 600);
+  for (let i = 0; i < 500; i++) {
+    movers[i] = new Mover(random(0, width), random(0, height));
+  }
+  attractor = new Attractor();
 }
-
 
 function draw() {
   background(255);
-  rule(repellers, repellers, -100);
-  rule(particles, repellers, 300);
+  rule(movers, movers,8);
+  
+  attractor.move();
 
-  for (let i=0; i<particles.length; i++) {
-    let p = particles[i];
-    p.update();
-    p.show();
+  for (let i = 0; i < movers.length; i++) {
+    let force = attractor.pull(movers[i]);
+    movers[i].applyForce(force);
+
+    movers[i].update();
+    movers[i].show();
   }
 }
 
 function rule(aPs, bPs, g) {
   for (let i=0; i<aPs.length; i++) {    
     for (let j=0; j<bPs.length; j++) {
-      let d = p5.Vector.dist(aPs[i].pos, bPs[j].pos);
+      let d = p5.Vector.dist(aPs[i].position, bPs[j].position);
       if (d > 0.2 && d < 90) {
-        let force = p5.Vector.sub(aPs[i].pos, bPs[j].pos);
+        let force = p5.Vector.sub(aPs[i].position, bPs[j].position);
         force.mult(g);
         force.div(d*d);
-        aPs[i].addForce(force);
+        aPs[i].applyForce(force);
       }
     }
   }
-}
-
-function createParticles(aColor, number) {
-  let group = [];
-  for (let i = 0; i < number; i++) {
-    let p = new Particle(aColor);
-    group.push(p);
-    particles.push(p);
-  }
-  return group;
 }
