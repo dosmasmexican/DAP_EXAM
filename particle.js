@@ -1,9 +1,11 @@
 class Particle {
-  constructor() {
+  constructor(aColor) {
     this.pos = createVector(random(0, width), random(0, height));
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
     this.w = 3;
+
+    this.c = aColor;
   }
   
   addForce(aForce) {
@@ -24,7 +26,7 @@ class Particle {
   }
   
   show() {
-    fill(0);
+    fill(this.c);
     circle(this.pos.x, this.pos.y, this.w);
   }
 }
