@@ -3,7 +3,7 @@ class Particle {
     this.pos = createVector(random(0, width), random(0, height));
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
-    this.w = 4;
+    this.w = 3;
   }
   
   addForce(aForce) {

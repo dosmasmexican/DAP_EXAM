@@ -1,16 +1,15 @@
 let particles = [];
-let rPs = [];
 
 function setup() {
   createCanvas(400, 400);
   noStroke();
-  rPs = createParticles(100); 
+  particle = createParticles(200); 
 }
 
 
 function draw() {
-  background(225);
-  
+  background(255);
+  rule(particles, particles, 10);
   for (let i=0; i<particles.length; i++) {
     let p = particles[i];
     p.update();
@@ -18,6 +17,19 @@ function draw() {
   }
 }
 
+function rule(aPs, bPs, g) {
+  for (let i=0; i<aPs.length; i++) {    
+    for (let j=0; j<bPs.length; j++) {
+      let d = p5.Vector.dist(aPs[i].pos, bPs[j].pos);
+      if (d > 0.2 && d < 90) {
+        let force = p5.Vector.sub(aPs[i].pos, bPs[j].pos);
+        force.mult(g);
+        force.div(d*d);
+        aPs[i].addForce(force);
+      }
+    }
+  }
+}
 
 function createParticles(number) {
   for (let i=0; i<number; i++) {
