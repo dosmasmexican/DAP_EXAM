@@ -5,6 +5,7 @@ class Repeller {
     this.angle = 0;
     this.speed = 0;
     this.synth = new p5.MonoSynth();
+    this.c = 0;
   }
 
   setPower(value) {
@@ -22,7 +23,7 @@ class Repeller {
   }
 
   show() {
-    fill(0);
+    fill(this.c);
     circle(this.position.x, this.position.y, 32);
   }
 
