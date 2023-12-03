@@ -39,6 +39,7 @@ background(255);
 att1.setPower(params.leftattractorpower);
 att2.setPower(params.rightattractorpower);
 repeller.setPower(params.repellerpower);
+repeller.setSpeed(params.rotatespeed);
 repeller.move();
 emitter1.addParticle();
 emitter1.addParticle();
