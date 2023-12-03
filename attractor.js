@@ -1,14 +1,17 @@
 class Attractor {
-  constructor(x, y,c) {
+  constructor(x, y) {
     this.position = createVector(x, y);
     this.power = 500;
     this.angle = 0;
-    this.size= c;
+    this.size= 100;
   }
   
+  setSize(value) {
+    this.size= value;
+  }
+
   setDis(value) {
     this.position.x = repeller.position.x +value;
-    // this.position.y = repeller.position.y +;
   }
 
   setPower(value) {

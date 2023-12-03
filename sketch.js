@@ -5,22 +5,22 @@ let params = {
   rotatespeedMin: -0.05,
   rotatespeedMax: 0.05,
   rotatespeedStep: 0.005,
-  leftattractorpower: 500,
-  leftattractorpowerMin: 0,
-  leftattractorpowerMax: 1000,
-  leftattractorpowerStep: 20,
-  rightattractorpower: 500,
-  rightattractorpowerrMin: 0,
-  rightattractorpowerMax: 1000,
-  rightattractorpowerStep: 20,
+  Aattractorpower: 500,
+  AattractorpowerrMin: 0,
+  AattractorpowerMax: 1000,
+  AattractorpowerStep: 20,
+  Battractorpower: 500,
+  BattractorpowerrMin: 0,
+  BattractorpowerMax: 1000,
+  BattractorpowerStep: 20,
   repellerpower: 400,
   repellerpowerMin: 0,
   repellerpowerMax: 800,
   repellerpowerStep: 20,
-  distance: 330,
-  distanceMin: 0,
-  distanceMax: 400,
-  distanceStep: 10,
+  rotatesize: 300,
+  rotatesizeMin: 0,
+  rotatesizeMax: 400,
+  rotatesizeStep: 2,
 };
 
 function setup() {
@@ -28,8 +28,8 @@ function setup() {
   emitter1 = new Emitter(width / 2, 100);
   emitter2 = new Emitter(width / 2, height-100);
   repeller = new Repeller(width / 2, height/2);
-  att1 = new Attractor(235, height/2, 100);
-  att2 = new Attractor(565, height/2,-300);
+  att1 = new Attractor(235, height/2);
+  att2 = new Attractor(565, height/2);
 
   gui = createGui("test slider");
 
@@ -42,10 +42,11 @@ function draw() {
 background(255);
 att1.setDis((params.distance)/2);
 att2.setDis(-(params.distance)/2);
+att2.setSize(params.rotatesize);
 att1.move();
 att2.move();
-att1.setPower(params.leftattractorpower);
-att2.setPower(params.rightattractorpower);
+att1.setPower(params.Aattractorpower);
+att2.setPower(params.Battractorpower);
 repeller.setPower(params.repellerpower);
 repeller.setSpeed(params.rotatespeed);
 repeller.move();
