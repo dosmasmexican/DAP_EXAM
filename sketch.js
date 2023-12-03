@@ -4,6 +4,23 @@ let repeller;
 
 let att;
 
+let gui;
+
+let params = {
+  rotatespeed: 0.01,
+  rotatespeedMin: -0.05,
+  rotatespeedMax: 0.05,
+  rotatespeedStep: 0.005,
+  particlevalue: 3,
+  particlevalueMin: 0,
+  particlevalueMax: 7,
+  particlevalueStep: 0.5,
+  repellerpower: 400,
+  repellerpowerMin: 0,
+  repellerpowerMax: 1000,
+  repellerpowerStep: 10
+};
+
 function setup() {
   createCanvas(800, 600);
   emitter1 = new Emitter(width / 2, 100);
@@ -11,6 +28,12 @@ function setup() {
   repeller = new Repeller(width / 2, height/2);
   att1 = new Attractor(235, height/2);
   att2 = new Attractor(565, height/2);
+
+  gui = createGui("test slider");
+
+  gui.addObject(params);
+  gui.setPosition(510, 10);
+  
 }
 
 function draw() {
