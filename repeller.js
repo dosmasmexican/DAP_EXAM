@@ -6,10 +6,14 @@ class Repeller {
     this.speed = 0;
   }
 
+  setPower(value) {
+    this.power = value;
+  }
+  
   setSpeed(value) {
     this.speed = map(value, 0, 200, -0.05, 0.05);
   }
-  
+
   move() {
     this.angle += this.speed;
     this.position.x = width / 2 + 150 * cos(this.angle);
