@@ -1,8 +1,9 @@
 class Repeller {
-  constructor(x, y) {
-    this.position = createVector(x, y);
-    this.power = 400;
+  constructor(p,n) {
+    this.position = createVector(width / 2, height / 2);
+    this.power = p;
     this.angle = 0;
+    this.speed = n;
   }
 
   move() {
