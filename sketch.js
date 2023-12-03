@@ -1,9 +1,3 @@
-let emitter;
-
-let repeller;
-
-let att;
-
 let gui;
 
 let params = {
@@ -11,10 +5,10 @@ let params = {
   rotatespeedMin: -0.05,
   rotatespeedMax: 0.05,
   rotatespeedStep: 0.005,
-  particlevalue: 3,
-  particlevalueMin: 0,
-  particlevalueMax: 7,
-  particlevalueStep: 0.5,
+  leftattractorpower: 500,
+  leftattractorpowerMin: 0,
+  leftattractorpowerMax: 1000,
+  leftattractorpowerStep: 20,
   repellerpower: 400,
   repellerpowerMin: 0,
   repellerpowerMax: 800,
@@ -39,6 +33,7 @@ function setup() {
 function draw() {
 background(255);
 repeller.setPower(params.repellerpower);
+att1.setPower(params.leftattractorpower);
 repeller.move();
 emitter1.addParticle();
 emitter1.addParticle();
