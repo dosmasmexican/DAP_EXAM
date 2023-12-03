@@ -13,7 +13,7 @@ class Repeller {
   }
 
   setSpeed(value) {
-    this.speed = map(value, 0, 200, -0.05, 0.05);
+    this.speed = value;
   }
 
   move() {

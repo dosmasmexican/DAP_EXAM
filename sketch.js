@@ -4,16 +4,14 @@ let repeller;
 let gui;
 
 let params = {
-  testValue: 10,
-  testValueMin: 0,
-  testValueMax: 500,
-  testValueStep: 2,
+  rotatespeed: 0.01,
+  rotatespeedMin: -0.05,
+  rotatespeedMax: 0.05,
+  rotatespeedStep: 0.005,
   move: 1,
   moveMin: 0,
   moveMax: 10,
   moveStep: 0.1,
-  tColor: [200, 0, 0],
-  tChoice: ["apple", "banana", "mango"],
 };
 
 function setup() {
@@ -30,11 +28,7 @@ function setup() {
 
 function draw() {
   background(255);
-  const r = rotateSlider.value();
-  const p = powerSlider.value();
- 
-  repeller.setPower(p);
-  repeller.setSpeed(r);
+  repeller.setSpeed(params.rotatespeed);
   repeller.move();
 
   for (let i = 0; i < particleSlider.value(); i++) {
