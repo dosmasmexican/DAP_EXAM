@@ -4,8 +4,8 @@ class Emitter {
     this.particles = [];
   }
 
-  addParticle() {
-    this.particles.push(new Particle(this.origin.x, this.origin.y));
+  addParticle(name) {
+    this.particles.push(new Particle(this.origin.x, this.origin.y, name));
   }
 
   applyForce(force) {
