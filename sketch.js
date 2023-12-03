@@ -17,8 +17,8 @@ let params = {
   particlevalueStep: 0.5,
   repellerpower: 400,
   repellerpowerMin: 0,
-  repellerpowerMax: 1000,
-  repellerpowerStep: 10
+  repellerpowerMax: 800,
+  repellerpowerStep: 20
 };
 
 function setup() {
@@ -33,11 +33,12 @@ function setup() {
 
   gui.addObject(params);
   gui.setPosition(510, 10);
-  
+
 }
 
 function draw() {
 background(255);
+repeller.setPower(params.repellerpower);
 repeller.move();
 emitter1.addParticle();
 emitter1.addParticle();

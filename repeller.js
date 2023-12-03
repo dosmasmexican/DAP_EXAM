@@ -14,7 +14,7 @@ class Repeller {
     this.speed = value;
   }
   move() {
-    this.angle+= this.speed;
+    this.angle+= 0.005;
     this.position.x = width/2 + 300 * cos(this.angle);
     this.position.y = height/2 + 300 * sin(this.angle);
   }
