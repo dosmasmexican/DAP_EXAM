@@ -18,6 +18,12 @@ function setup() {
   button3 = createButton("3");
   button3.position(20 + 80, 65);
   button3.mousePressed(case3);
+
+  greeting = createElement("h2", "Select a mode");
+  greeting.position(20, 5);
+
+  textAlign(CENTER);
+  textSize(50);
 }
 
 function draw() {
