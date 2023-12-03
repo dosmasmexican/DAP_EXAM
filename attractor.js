@@ -1,8 +1,9 @@
 class Attractor {
-  constructor(x, y) {
+  constructor(x, y,c) {
     this.position = createVector(x, y);
     this.power = 500;
     this.angle = 0;
+    this.size= c;
   }
   
   setDis(value) {
@@ -14,11 +15,11 @@ class Attractor {
     this.power = value;
   }
   
-  // move() {
-  //   this.angle+= 0.07;
-  //   this.position.x = repeller.position.x - 150 * cos(this.angle);
-  //   this.position.y = repeller.position.y - 150 * sin(this.angle);
-  // }
+  move() {
+    this.angle+= 0.02;
+    this.position.x = width/2 - this.size * cos(this.angle);
+    this.position.y = height/2 - this.size * sin(this.angle);
+  }
   
   show() {
     stroke(0);

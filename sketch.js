@@ -28,8 +28,8 @@ function setup() {
   emitter1 = new Emitter(width / 2, 100);
   emitter2 = new Emitter(width / 2, height-100);
   repeller = new Repeller(width / 2, height/2);
-  att1 = new Attractor(235, height/2);
-  att2 = new Attractor(565, height/2);
+  att1 = new Attractor(235, height/2, 100);
+  att2 = new Attractor(565, height/2,-300);
 
   gui = createGui("test slider");
 
@@ -42,6 +42,8 @@ function draw() {
 background(255);
 att1.setDis((params.distance)/2);
 att2.setDis(-(params.distance)/2);
+att1.move();
+att2.move();
 att1.setPower(params.leftattractorpower);
 att2.setPower(params.rightattractorpower);
 repeller.setPower(params.repellerpower);
