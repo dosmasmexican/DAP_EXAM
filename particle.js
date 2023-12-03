@@ -1,37 +1,34 @@
-class Mover {
+class Particle {
   constructor(x, y) {
     this.position = createVector(x, y);
-    this.velocity = createVector(0, 0);
+    this.velocity = createVector(random(-1, 1), random(-1, 0));
     this.acceleration = createVector(0, 0);
+    this.lifespan = 255;
   }
 
-  applyForce(force) {
-    this.acceleration.add(force);
+  run() {
+    this.update();
+    this.show();
+  }
+
+  applyForce(f) {
+    this.acceleration.add(f);
   }
 
   update() {
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
-    this.acceleration = createVector(0, 0);
-    this.velocity.mult(0.5);
-
-    if (this.position.x < 0) {
-      this.position.x = width;
-    }
-    if (this.position.x > width) {
-      this.position.x = 0;
-    }
-    if (this.position.y < 0) {
-      this.position.y = height;
-    }
-
-    if (this.position.y > height) {
-      this.position.y = 0;
-    }
+    this.lifespan -= 2;
+    this.acceleration.mult(0);
   }
 
   show() {
-    fill(0);
-    circle(this.position.x, this.position.y, 3);
+    noStroke();
+    fill(50, this.lifespan);
+    circle(this.position.x, this.position.y, 6);
+  }
+
+  isDead() {
+    return this.lifespan < 0.0;
   }
 }

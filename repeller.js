@@ -1,5 +1,5 @@
 class Repeller {
-  constructor(p,n) {
+  constructor(p, n) {
     this.position = createVector(width / 2, height / 2);
     this.power = p;
     this.angle = 0;
@@ -7,11 +7,11 @@ class Repeller {
   }
 
   move() {
-    this.angle+= 0.005;
-    this.position.x = width/2 + 300 * cos(this.angle);
-    this.position.y = height/2 + 300 * sin(this.angle);
+    this.angle += this.speed;
+    this.position.x = width / 2 + 150 * cos(this.angle);
+    this.position.y = height / 2 + 150 * sin(this.angle);
   }
-  
+
   show() {
     fill(0);
     circle(this.position.x, this.position.y, 32);
