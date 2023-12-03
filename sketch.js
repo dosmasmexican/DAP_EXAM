@@ -1,34 +1,38 @@
-let rotateSlider;
-let particleSlider;
-let powerSlider;
-
 let emitter;
 let repeller;
 
+let gui;
+
+let params = {
+  testValue: 10,
+  testValueMin: 0,
+  testValueMax: 500,
+  testValueStep: 2,
+  move: 1,
+  moveMin: 0,
+  moveMax: 10,
+  moveStep: 0.1,
+  tColor: [200, 0, 0],
+  tChoice: ["apple", "banana", "mango"],
+};
+
 function setup() {
   createCanvas(500, 500);
-  textSize(15);
-  noStroke();
-  rotateSlider = createSlider(0, 200, 100);
-  rotateSlider.position(20, 20);
-  particleSlider = createSlider(0, 7, 3);
-  particleSlider.position(20, 40);
-  powerSlider = createSlider(0, 1000, 400);
-  powerSlider.position(20, 60);
 
   emitter = new Emitter(width / 2, height / 2);
   repeller = new Repeller(width / 2, height / 2);
+
+  gui = createGui("test slider");
+
+  gui.addObject(params);
+  gui.setPosition(510, 10);
 }
 
 function draw() {
   background(255);
   const r = rotateSlider.value();
   const p = powerSlider.value();
-  fill(0);
-  text("rotate speed", rotateSlider.x * 2 + rotateSlider.width, 35);
-  text("particle", rotateSlider.x * 2 + rotateSlider.width, 55);
-  text("repeller power", rotateSlider.x * 2 + rotateSlider.width, 75);
-
+ 
   repeller.setPower(p);
   repeller.setSpeed(r);
   repeller.move();
