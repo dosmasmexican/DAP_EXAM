@@ -8,10 +8,10 @@ let params = {
   rotatespeedMin: -0.05,
   rotatespeedMax: 0.05,
   rotatespeedStep: 0.005,
-  move: 1,
-  moveMin: 0,
-  moveMax: 10,
-  moveStep: 0.1,
+  particlevalue: 3,
+  particlevalueMin: 0,
+  particlevalueMax: 7,
+  particlevalueStep: 0.5,
 };
 
 function setup() {
@@ -31,7 +31,7 @@ function draw() {
   repeller.setSpeed(params.rotatespeed);
   repeller.move();
 
-  for (let i = 0; i < particleSlider.value(); i++) {
+  for (let i = 0; i < params.particlevalue; i++) {
     emitter.addParticle();
   }
 
