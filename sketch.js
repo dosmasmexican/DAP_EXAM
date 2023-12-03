@@ -1,40 +1,35 @@
-let movers = [];
+let emitter;
 
-let attractor;
+let repeller;
 
 function setup() {
-  createCanvas(600, 600);
-  for (let i = 0; i < 500; i++) {
-    movers[i] = new Mover(random(0, width), random(0, height));
-  }
-  attractor = new Attractor();
+  createCanvas(500, 500);
+  emitter = new Emitter(width / 2, height / 2);
+  repeller = new Repeller(0,0);
+  
+  button1 = createButton("1");
+  button1.position(20, 65);
+  button1.mousePressed(case1);
+
+  button2 = createButton("2");
+  button2.position(20 + 40, 65);
+  button2.mousePressed(case2);
+
+  button3 = createButton("3");
+  button3.position(20 + 80, 65);
+  button3.mousePressed(case3);
 }
 
 function draw() {
   background(255);
-  rule(movers, movers,8);
-  
-  attractor.move();
+  repeller.move();
+  emitter.addParticle();
+  emitter.addParticle();
+  emitter.addParticle();
+  let gravity = createVector(0, 0.1);
+  emitter.applyForce(gravity);
+  emitter.applyRepeller(repeller);
+  emitter.run();
 
-  for (let i = 0; i < movers.length; i++) {
-    let force = attractor.pull(movers[i]);
-    movers[i].applyForce(force);
-
-    movers[i].update();
-    movers[i].show();
-  }
-}
-
-function rule(aPs, bPs, g) {
-  for (let i=0; i<aPs.length; i++) {    
-    for (let j=0; j<bPs.length; j++) {
-      let d = p5.Vector.dist(aPs[i].position, bPs[j].position);
-      if (d > 0.2 && d < 90) {
-        let force = p5.Vector.sub(aPs[i].position, bPs[j].position);
-        force.mult(g);
-        force.div(d*d);
-        aPs[i].applyForce(force);
-      }
-    }
-  }
+  repeller.show();
 }
