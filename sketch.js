@@ -24,7 +24,7 @@ function draw() {
   background(255);
   const r = rotateSlider.value();
   const p = powerSlider.value();
-
+  fill(0);
   text("rotate speed", rotateSlider.x * 2 + rotateSlider.width, 35);
   text("particle", rotateSlider.x * 2 + rotateSlider.width, 55);
   text("repeller power", rotateSlider.x * 2 + rotateSlider.width, 75);
@@ -32,7 +32,7 @@ function draw() {
   repeller.setPower(p);
   repeller.setSpeed(r);
   repeller.move();
-  
+
   for (let i = 0; i < particleSlider.value(); i++) {
     emitter.addParticle();
   }
