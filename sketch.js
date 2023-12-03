@@ -9,6 +9,10 @@ let params = {
   leftattractorpowerMin: 0,
   leftattractorpowerMax: 1000,
   leftattractorpowerStep: 20,
+  rightattractorpower: 500,
+  rightattractorpowerrMin: 0,
+  rightattractorpowerMax: 1000,
+  rightattractorpowerStep: 20,
   repellerpower: 400,
   repellerpowerMin: 0,
   repellerpowerMax: 800,
@@ -32,8 +36,9 @@ function setup() {
 
 function draw() {
 background(255);
-repeller.setPower(params.repellerpower);
 att1.setPower(params.leftattractorpower);
+att2.setPower(params.rightattractorpower);
+repeller.setPower(params.repellerpower);
 repeller.move();
 emitter1.addParticle();
 emitter1.addParticle();
@@ -52,6 +57,4 @@ emitter2.applyAttractor(att1);
 emitter2.applyAttractor(att2);
 emitter2.run();
 repeller.show();
-// att1.show();
-// att2.show();
 }
