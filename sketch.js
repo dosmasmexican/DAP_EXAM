@@ -12,6 +12,10 @@ let params = {
   particlevalueMin: 0,
   particlevalueMax: 7,
   particlevalueStep: 0.5,
+  repellerpower: 400,
+  repellerpowerMin: 0,
+  repellerpowerMax: 1000,
+  repellerpowerStep: 10
 };
 
 function setup() {
@@ -28,6 +32,7 @@ function setup() {
 
 function draw() {
   background(255);
+  repeller.setPower(params.repellerpower);
   repeller.setSpeed(params.rotatespeed);
   repeller.move();
 
