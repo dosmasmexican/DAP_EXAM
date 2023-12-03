@@ -17,6 +17,10 @@ let params = {
   repellerpowerMin: 0,
   repellerpowerMax: 800,
   repellerpowerStep: 20
+  distance: 330,
+  distanceMin: 0,
+  distanceMax: 400,
+  distanceStep: 10,
 };
 
 function setup() {
@@ -36,6 +40,8 @@ function setup() {
 
 function draw() {
 background(255);
+att1.setDis((params.distance)/2);
+att2.setDis(-(params.distance)/2);
 att1.setPower(params.leftattractorpower);
 att2.setPower(params.rightattractorpower);
 repeller.setPower(params.repellerpower);
@@ -58,4 +64,6 @@ emitter2.applyAttractor(att1);
 emitter2.applyAttractor(att2);
 emitter2.run();
 repeller.show();
+att1.show();
+att2.show();
 }

@@ -5,15 +5,20 @@ class Attractor {
     this.angle = 0;
   }
   
+  setDis(value) {
+    this.position.x = repeller.position.x +value;
+    // this.position.y = repeller.position.y +;
+  }
+
   setPower(value) {
     this.power = value;
   }
   
-  move() {
-    this.angle+= 0.07;
-    this.position.x = repeller.position.x - 150 * cos(this.angle);
-    this.position.y = repeller.position.y - 150 * sin(this.angle);
-  }
+  // move() {
+  //   this.angle+= 0.07;
+  //   this.position.x = repeller.position.x - 150 * cos(this.angle);
+  //   this.position.y = repeller.position.y - 150 * sin(this.angle);
+  // }
   
   show() {
     stroke(0);
