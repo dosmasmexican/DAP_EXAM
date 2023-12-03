@@ -16,7 +16,7 @@ let params = {
   repellerpower: 400,
   repellerpowerMin: 0,
   repellerpowerMax: 800,
-  repellerpowerStep: 20
+  repellerpowerStep: 20,
   distance: 330,
   distanceMin: 0,
   distanceMax: 400,
