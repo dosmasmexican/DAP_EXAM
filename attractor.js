@@ -1,34 +1,14 @@
 class Attractor {
-  constructor(x, y) {
-    this.position = createVector(x, y);
-    this.power = 500;
+  constructor() {
+    this.position = createVector(width / 2, height / 2);
+    this.power = 700;
     this.angle = 0;
-    this.size= 100;
-  }
-  
-  setSize(value) {
-    this.size= value;
   }
 
-  setDis(value) {
-    this.position.x = repeller.position.x +value;
-  }
-
-  setPower(value) {
-    this.power = value;
-  }
-  
   move() {
-    this.angle+= 0.02;
-    this.position.x = width/2 - this.size * cos(this.angle);
-    this.position.y = height/2 - this.size * sin(this.angle);
-  }
-  
-  show() {
-    stroke(0);
-    strokeWeight(2);
-    fill(200, 130, 50);
-    circle(this.position.x, this.position.y, 32);
+    this.angle += 0.02;
+    this.position.x = width / 2 - 150 * cos(this.angle);
+    this.position.y = height / 2 - 150 * sin(this.angle);
   }
 
   pull(particle) {
@@ -38,5 +18,10 @@ class Attractor {
     let strength = this.power / (distance * distance);
     force.setMag(strength);
     return force;
+  }
+
+  show() {
+    fill(0);
+    circle(this.position.x, this.position.y, 16);
   }
 }

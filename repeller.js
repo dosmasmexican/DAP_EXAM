@@ -1,27 +1,21 @@
 class Repeller {
   constructor(x, y) {
     this.position = createVector(x, y);
-    this.power = 400;
+    this.power = 500;
     this.angle = 0;
-    this.speed = 0;
   }
 
-  setPower(value) {
-    this.power = value;
-  }
-
-  setSpeed(value) {
-    this.speed = value;
-  }
   move() {
-    this.angle+= this.speed;
-    this.position.x = width/2 + 300 * cos(this.angle);
-    this.position.y = height/2 + 300 * sin(this.angle);
+    this.angle+= 0.03;
+    this.position.x = width/2 + 50 * cos(this.angle);
+    this.position.y = height/2 + 50 * sin(this.angle);
   }
   
   show() {
-    fill(0);
-    circle(this.position.x, this.position.y, 32);
+    stroke(0);
+    strokeWeight(2);
+    fill(127);
+    circle(this.position.x, this.position.y, 16);
   }
 
   repel(particle) {
