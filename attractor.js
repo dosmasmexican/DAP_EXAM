@@ -1,7 +1,7 @@
 class Attractor {
   constructor() {
     this.position = createVector(width / 2, height / 2);
-    this.power = 700;
+    this.power = 800;
     this.angle = 0;
   }
 

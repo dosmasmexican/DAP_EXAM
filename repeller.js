@@ -1,7 +1,7 @@
 class Repeller {
   constructor(x, y) {
     this.position = createVector(x, y);
-    this.power = 500;
+    this.power = 1000;
     this.angle = 0;
   }
 
