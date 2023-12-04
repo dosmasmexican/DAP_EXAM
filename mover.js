@@ -32,6 +32,6 @@ class Mover {
   
     show() {
       fill(0);
-      circle(this.position.x, this.position.y, 3);
+      circle(this.position.x, this.position.y, 1);
     }
   }

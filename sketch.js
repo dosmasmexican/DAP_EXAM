@@ -3,18 +3,33 @@ let movers = [];
 let attractor;
 let repeller;
 
+let gui;
+
+let params = {
+  particlepower: -1,
+  particlepowerMin: -15,
+  particlepowerMax: 1,
+  particlepowerStep: 0.2,
+};
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(300, 300);
   for (let i = 0; i < 500; i++) {
     movers[i] = new Mover(random(0, width), random(0, height));
   }
   attractor = new Attractor();
   repeller = new Repeller(width / 2, height/2);
+
+  gui = createGui("test slider");
+
+  gui.addObject(params);
+  gui.setPosition(510, 10);
+
 }
 
 function draw() {
   background(255);
-  rule(movers, movers,-0.03);
+  rule(movers, movers, params.particlepower);
   repeller.move();
   repeller.show();
   attractor.move();
