@@ -14,6 +14,7 @@
 //   repellerpowerMax: 1000,
 //   repellerpowerStep: 10
 // };
+let osc, fft;
 
 function setup() {
   createCanvas(800, 800);
@@ -27,6 +28,13 @@ function setup() {
 
   // gui.addObject(params);
   // gui.setPosition(510, 10);
+
+  osc = new p5.TriOsc();
+  osc.amp(0.5);
+
+  fft = new p5.FFT();
+  osc.start();
+  
 }
 
 function draw() {
