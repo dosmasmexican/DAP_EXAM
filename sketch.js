@@ -34,7 +34,6 @@ function setup() {
 
   fft = new p5.FFT();
   osc.start();
-  
 }
 
 function draw() {
