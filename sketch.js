@@ -62,6 +62,11 @@ function draw() {
   // emitter.run();
 
   // repeller.show();
+  let freq = map(particle.position.x, 0, width, 40, 880);
+  osc.freq(freq);
+
+  let amp = map(particle.position.y, 0, height, 1, 0.005);
+  osc.amp(amp);
 }
 
 function mousePressed() {
