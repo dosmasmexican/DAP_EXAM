@@ -20,7 +20,8 @@ let params = {
 
 function setup() {
   createCanvas(500, 500);
-
+  getAudioContext().suspend();
+  
   emitter = new Emitter(width / 2, height / 2);
   repeller = new Repeller(width / 2, height / 2);
 
