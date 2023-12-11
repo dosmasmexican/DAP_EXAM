@@ -1,19 +1,24 @@
-// let gui;
+let gui;
 
-// let params = {
-//   rotatespeed: 0.01,
-//   rotatespeedMin: -0.05,
-//   rotatespeedMax: 0.05,
-//   rotatespeedStep: 0.005,
-//   particlevalue: 3,
-//   particlevalueMin: 0,
-//   particlevalueMax: 7,
-//   particlevalueStep: 0.5,
-//   repellerpower: 400,
-//   repellerpowerMin: 0,
-//   repellerpowerMax: 1000,
-//   repellerpowerStep: 10
-// };
+let params = {
+  rotatespeed: 0.01,
+  rotatespeedMin: -0.05,
+  rotatespeedMax: 0.05,
+  rotatespeedStep: 0.005,
+  leftattractorpower: 500,
+  leftattractorpowerrMin: 0,
+  leftattractorpowerMax: 1000,
+  leftattractorpowerStep: 20,
+  rightattractorpower: 500,
+  rightattractorpowerrMin: 0,
+  rightattractorpowerMax: 1000,
+  rightattractorpowerStep: 20,
+  repellerpower: 400,
+  repellerpowerMin: 0,
+  repellerpowerMax: 800,
+  repellerpowerStep: 20,
+};
+
 let osc, fft;
 
 function setup() {
@@ -34,10 +39,19 @@ function setup() {
 
   fft = new p5.FFT();
   osc.start();
+
+  gui = createGui("test slider");
+
+  gui.addObject(params);
+  gui.setPosition(510, 10);
 }
 
 function draw() {
   background(255);
+  att1.setPower(params.leftattractorpower);
+  att2.setPower(params.rightattractorpower);
+  repeller.setPower(params.repellerpower);
+  repeller.setSpeed(params.rotatespeed);
   repeller.move();
   let gravity1 = createVector(0, 0.005);
   particle.applyForce(gravity1);
