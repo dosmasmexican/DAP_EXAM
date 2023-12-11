@@ -47,3 +47,7 @@ function draw() {
 
   repeller.show();
 }
+
+function mousePressed(){
+  userstartAudio();
+}
