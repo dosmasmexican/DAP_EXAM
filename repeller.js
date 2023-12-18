@@ -2,18 +2,24 @@ class Repeller {
   constructor(x, y) {
     this.position = createVector(x, y);
     this.power = 400;
+    this.angle = 0;
     this.speed = 0;
   }
 
-  setPower(value) {
+      setPower(value) {
     this.power = value;
   }
 
   setSpeed(value) {
     this.speed = value;
   }
-
-
+  
+  move() {
+    this.angle+= this.speed;
+    this.position.x = width/2 + 300 * cos(this.angle);
+    this.position.y = height/2 + 300 * sin(this.angle);
+  }
+  
   show() {
     fill(0);
     circle(this.position.x, this.position.y, 32);

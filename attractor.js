@@ -5,10 +5,11 @@ class Attractor {
     this.angle = 0;
   }
   
-  setPower(value) {
+    setPower(value) {
     this.power = value;
   }
-
+  
+  
   move() {
     this.angle+= 0.07;
     this.position.x = repeller.position.x - 150 * cos(this.angle);

@@ -9,14 +9,24 @@ class Emitter {
   }
 
   applyForce(force) {
+    //{!3} Applying a force as a p5.Vector
     for (let particle of this.particles) {
       particle.applyForce(force);
     }
   }
 
   applyRepeller(repeller) {
+    //{!4} Calculating a force for each Particle based on a Repeller
     for (let particle of this.particles) {
       let force = repeller.repel(particle);
+      particle.applyForce(force);
+    }
+  }
+
+  applyAttractor(attractor) {
+    //{!4} Calculating a force for each Particle based on a Repeller
+    for (let particle of this.particles) {
+      let force = attractor.pull(particle);
       particle.applyForce(force);
     }
   }
