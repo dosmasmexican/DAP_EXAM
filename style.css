@@ -3,8 +3,8 @@ html, body {
   padding: 0;
   align-content: center;
   text-align: center;
-  color: #000;
-  background-color: #eee;
+  color: #ebcf1e;
+  background-color: #ba3e25;
  }
  canvas {
    display: block;
