@@ -4,13 +4,17 @@ class Attractor {
     this.power = 100;
     this.angle = 0;
   }
-  
+
+  setPower(value) {
+    this.power = value;
+  }
+
   move() {
-    this.angle+= 0.07;
+    this.angle += 0.07;
     this.position.x = repeller.position.x - 150 * cos(this.angle);
     this.position.y = repeller.position.y - 150 * sin(this.angle);
   }
-  
+
   show() {
     stroke(0);
     strokeWeight(2);
