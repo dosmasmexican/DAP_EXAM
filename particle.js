@@ -3,6 +3,7 @@ class Particle {
     this.position = createVector(x, y);
     this.velocity = createVector(random(-1, 1), random(-1, 0));
     this.acceleration = createVector(0, 0);
+    this.lifespan = 255.0;
   }
 
   run() {
@@ -14,25 +15,20 @@ class Particle {
     this.acceleration.add(f);
   }
 
-  applyRepeller(repeller) {
-    let force = repeller.repel(particle);
-    particle.applyForce(force);
-}
-
-applyAttractor(attractor) {
-    let force = attractor.pull(particle);
-    particle.applyForce(force);
-}
-
   update() {
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
+    this.lifespan -= 2;
     this.acceleration.mult(0);
   }
 
   show() {
     noStroke();
-    fill(50, 255);
-    circle(this.position.x, this.position.y, 10);
+    fill(50, this.lifespan);
+    circle(this.position.x, this.position.y, 6);
+  }
+
+  isDead() {
+    return this.lifespan < 0.0;
   }
 }
