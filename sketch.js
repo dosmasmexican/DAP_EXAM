@@ -23,6 +23,10 @@ let params = {
   repellerpowerMin: 0,
   repellerpowerMax: 100,
   repellerpowerStep: 10,
+  particlevalue: 3,
+  particlevalueMin: 0,
+  particlevalueMax: 7,
+  particlevalueStep: 1,
 };
 
 function setup() {
@@ -52,9 +56,9 @@ function draw() {
   att2.setPower(params.rightattractorpower);
   repeller.setPower(params.repellerpower);
   repeller.setSpeed(params.rotatespeed);
-  emitter.addParticle();
-  emitter.addParticle();
-  emitter.addParticle();
+  for (let i = 0; i < params.particlevalue; i++) {
+    emitter.addParticle();
+  }
   let gravity1 = createVector(0, 0.005);
   emitter.work();
   emitter.applyForce(gravity1);
