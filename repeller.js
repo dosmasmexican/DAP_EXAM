@@ -13,6 +13,7 @@ class Repeller {
     this.speed = value;
   }
 
+
   show() {
     fill(0);
     circle(this.position.x, this.position.y, 32);

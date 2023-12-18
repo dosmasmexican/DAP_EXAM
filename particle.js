@@ -60,6 +60,7 @@ class Particle {
       }
     }
   }
+  
   update() {
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
