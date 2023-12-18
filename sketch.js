@@ -19,7 +19,7 @@ let params = {
   rightattractorpowerrMin: 0,
   rightattractorpowerMax: 100,
   rightattractorpowerStep: 10,
-  repellerpower: 20,
+  repellerpower: 10,
   repellerpowerMin: 0,
   repellerpowerMax: 100,
   repellerpowerStep: 10,
@@ -45,7 +45,7 @@ function setup() {
   gui = createGui("test slider");
 
   gui.addObject(params);
-  gui.setPosition(510, 10);
+  gui.setPosition(1200, 10);
   
 }
 
