@@ -1,7 +1,14 @@
 html, body {
- margin: 0;
- padding: 0;
-}
-canvas {
-  display: block;
-}
+  margin: 0;
+  padding: 0;
+  align-content: center;
+  text-align: center;
+  color: #000;
+  background-color: #eee;
+ }
+ canvas {
+   display: block;
+   margin-top: 0px;
+   margin-left: auto;
+   margin-right: auto;
+ }
