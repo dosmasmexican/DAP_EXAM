@@ -24,7 +24,7 @@ class Particle {
 
   show() {
     noStroke();
-    fill(50, this.lifespan);
+    fill(0, this.lifespan);
     circle(this.position.x, this.position.y, 6);
   }
 

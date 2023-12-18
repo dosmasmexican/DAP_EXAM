@@ -56,7 +56,7 @@ class Emitter {
 
   show() {
     noStroke();
-    fill(0);
+    fill(random(0,255),random(0,255),random(0,255));
     circle(this.origin.x, this.origin.y, 15);
   }
 }

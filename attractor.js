@@ -16,9 +16,8 @@ class Attractor {
   }
 
   show() {
-    stroke(0);
-    strokeWeight(2);
-    fill(200, 130, 50);
+    noStroke();
+    fill('#ba3e25');
     circle(this.position.x, this.position.y, 32);
   }
 

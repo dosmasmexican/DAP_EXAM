@@ -45,12 +45,12 @@ function setup() {
   gui = createGui("test slider");
 
   gui.addObject(params);
-  gui.setPosition(1200, 10);
+  gui.setPosition(1400, 10);
   
 }
 
 function draw() {
-  background(255);
+  background('#fcf6e3');
   repeller.move();
   att1.setPower(params.leftattractorpower);
   att2.setPower(params.rightattractorpower);

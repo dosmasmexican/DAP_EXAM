@@ -21,7 +21,7 @@ class Repeller {
   }
 
   show() {
-    fill(0);
+    fill('#ebcf1e');
     circle(this.position.x, this.position.y, 32);
   }
 
