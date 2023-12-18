@@ -2,6 +2,19 @@ class Emitter {
   constructor(x, y) {
     this.origin = createVector(x, y);
     this.particles = [];
+    this.velocity = createVector(0, 0);
+    this.acceleration = createVector(0, 0);
+  }
+  
+  work() {
+    this.update();
+    this.show();
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.origin.add(this.velocity);
+    this.acceleration.mult(0);
   }
 
   addParticle() {
@@ -9,25 +22,25 @@ class Emitter {
   }
 
   applyForce(force) {
-    //{!3} Applying a force as a p5.Vector
     for (let particle of this.particles) {
       particle.applyForce(force);
     }
+    this.acceleration.add(force);
   }
 
   applyRepeller(repeller) {
-    //{!4} Calculating a force for each Particle based on a Repeller
     for (let particle of this.particles) {
       let force = repeller.repel(particle);
       particle.applyForce(force);
+      this.applyForce(force);
     }
   }
 
   applyAttractor(attractor) {
-    //{!4} Calculating a force for each Particle based on a Repeller
     for (let particle of this.particles) {
       let force = attractor.pull(particle);
       particle.applyForce(force);
+      this.applyForce(force);
     }
   }
 
@@ -39,5 +52,11 @@ class Emitter {
         this.particles.splice(i, 1);
       }
     }
+  }
+
+  show() {
+    noStroke();
+    fill(0);
+    circle(this.origin.x, this.origin.y, 25);
   }
 }

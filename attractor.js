@@ -1,14 +1,9 @@
 class Attractor {
   constructor(x, y) {
     this.position = createVector(x, y);
-    this.power = 500;
+    this.power = 100;
     this.angle = 0;
   }
-  
-    setPower(value) {
-    this.power = value;
-  }
-  
   
   move() {
     this.angle+= 0.07;
