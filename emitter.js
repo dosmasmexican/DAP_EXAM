@@ -57,6 +57,6 @@ class Emitter {
   show() {
     noStroke();
     fill(0);
-    circle(this.origin.x, this.origin.y, 25);
+    circle(this.origin.x, this.origin.y, 15);
   }
 }
