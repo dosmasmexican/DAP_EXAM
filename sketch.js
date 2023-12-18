@@ -8,11 +8,8 @@ let params = {
   rotatespeedMin: -0.05,
   rotatespeedMax: 0.05,
   rotatespeedStep: 0.005,
-  particlevalue: 3,
-  particlevalueMin: 0,
-  particlevalueMax: 7,
-  particlevalueStep: 0.5,
-  repellerpower: 400,
+  particlevalue: 0,
+  repellerpower: 0,
   repellerpowerMin: 0,
   repellerpowerMax: 1000,
   repellerpowerStep: 10
@@ -20,10 +17,9 @@ let params = {
 
 function setup() {
   getAudioContext().suspend();
+  createCanvas(400, 800);
 
-  createCanvas(500, 500);
-
-  emitter = new Emitter(width / 2, height / 2);
+  emitter = new Emitter(width / 2, -200);
   repeller = new Repeller(width / 2, height / 2);
 
   gui = createGui("test slider");
@@ -38,18 +34,17 @@ function draw() {
   repeller.setSpeed(params.rotatespeed);
   repeller.move();
 
-  for (let i = 0; i < params.particlevalue; i++) {
-    emitter.addParticle();
-  }
+  emitter.addParticle();
 
-  let gravity = createVector(0, 0.1);
+
+  let gravity = createVector(0, 0.01);
   emitter.applyForce(gravity);
   emitter.applyRepeller(repeller);
   emitter.run();
 
   repeller.show();
 }
-
 function mousePressed() {
   userStartAudio();
 }
+
