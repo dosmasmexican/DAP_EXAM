@@ -23,6 +23,8 @@ let osc, fft;
 
 function setup() {
   createCanvas(800, 800);
+  getAudioContext().suspend();
+  
   particle = new Particle(width / 2, 100);
   repeller = new Repeller(width / 2, height/2);
   att1 = new Attractor(235, height/2);
@@ -63,4 +65,8 @@ function draw() {
   let amp = map(particle.position.y, 0, height, 1, 0.005);
   osc.amp(amp);
 }
-  
+
+function mousePressed() {
+  userStartAudio();
+  } 
+
