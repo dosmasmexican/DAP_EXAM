@@ -4,11 +4,6 @@ let repeller;
 let gui;
 
 let params = {
-  rotatespeed: 0.01,
-  rotatespeedMin: -0.05,
-  rotatespeedMax: 0.05,
-  rotatespeedStep: 0.005,
-  particlevalue: 0,
   repellerpower: 0,
   repellerpowerMin: 0,
   repellerpowerMax: 1000,
@@ -17,7 +12,7 @@ let params = {
 
 function setup() {
   getAudioContext().suspend();
-  
+
   createCanvas(400, 800);
 
   emitter = new Emitter(width / 2, -200);
