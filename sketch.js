@@ -33,8 +33,8 @@ function setup() {
   createCanvas(800, 800);
   emitter = new Emitter(width / 2, 100);
   repeller = new Repeller(width / 2, height/2);
-  att1 = new Attractor(235, height/2);
-  att2 = new Attractor(565, height/2);
+  att1 = new Attractor(width / 2-150, height/2);
+  att2 = new Attractor(width / 2+150, height/2);
   
   osc = new p5.TriOsc();
   osc.amp(0.5);
