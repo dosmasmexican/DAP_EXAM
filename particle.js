@@ -4,7 +4,6 @@ class Particle {
     this.velocity = createVector(random(-1, 1), random(-1, 0));
     this.acceleration = createVector(0, 0);
     this.synth = new p5.MonoSynth();
-    this.c = 0;
   }
 
   run() {
@@ -19,9 +18,6 @@ class Particle {
 
   checkBottom() {
     if (this.position.y >= height) {
-      // this.c = color(random(0, 255), random(0, 255), random(0, 255));
-      let tones = ["C3", "E3", "G3", "C4", "E4", "G4", "C6", "D6", "E6"];
-
       if (this.position.x > 0 && this.position.x < 40) {
         this.synth.triggerAttack("C3");
         this.synth.triggerRelease(0.05);
@@ -73,7 +69,7 @@ class Particle {
 
   show() {
     noStroke();
-    fill(this.c);
+    fill(0);
     circle(this.position.x, this.position.y, 6);
   }
 

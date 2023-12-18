@@ -17,6 +17,7 @@ let params = {
 
 function setup() {
   getAudioContext().suspend();
+
   createCanvas(400, 800);
 
   emitter = new Emitter(width / 2, -200);
@@ -42,8 +43,9 @@ function draw() {
   emitter.applyRepeller(repeller);
   emitter.run();
 
-  repeller.show();
+  // repeller.show();
 }
+
 function mousePressed() {
   userStartAudio();
 }
